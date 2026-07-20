@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veranstaltungen &amp; Kalender | Max Resch, Wien</title>
+  <meta name="description" content="Aktuelle Workshops, Kurse und Konzerte von Max Resch in Wien — mit Terminkalender und direkter Buchungsmöglichkeit." />
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="index.html">Max <span>Resch</span><small>Musik · Rhythmus · Bewegung</small></a>
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="ueber-mich.html">Über mich</a></li>
+          <li><a href="angebote.html">Angebote</a></li>
+          <li><a href="veranstaltungen.html" class="active">Veranstaltungen</a></li>
+          <li><a href="buchung.html">Buchung</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--primary nav-cta" href="buchung.html">Jetzt buchen</a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Start</a> / Veranstaltungen</p>
+        <span class="eyebrow">Veranstaltungen</span>
+        <h1>Termine &amp; Kalender</h1>
+        <p class="lead">Alle kommenden Workshops, Kurse und Konzerte auf einen Blick. Tage mit farbiger Markierung im Kalender anklicken, um Details zu sehen. <em>(Hinweis: Die angezeigten Termine sind Beispiel-Platzhalter.)</em></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container calendar-layout">
+        <div class="calendar reveal" id="calendar">
+          <div class="calendar-head">
+            <h3 class="cal-title">Monat</h3>
+            <div class="cal-nav">
+              <button type="button" class="cal-prev" aria-label="Voriger Monat">←</button>
+              <button type="button" class="cal-next" aria-label="Nächster Monat">→</button>
+            </div>
+          </div>
+          <div class="calendar-grid"></div>
+          <div class="cal-detail"></div>
+        </div>
+        <div>
+          <div class="section-head reveal">
+            <span class="eyebrow">Kommende Termine</span>
+            <h2>Demnächst bei Max</h2>
+          </div>
+          <div class="event-list" id="event-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band bg-publikum">
+      <div class="container reveal">
+        <blockquote>Musik drückt aus, was nicht gesagt werden kann und worüber zu schweigen unmöglich ist.</blockquote>
+        <cite>Victor Hugo</cite>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal bg-taenzerin">
+          <h2>Kein passender Termin dabei?</h2>
+          <p>Workshops und Seminare organisiere ich auch individuell für Gruppen, Schulen und Teams — schreib mir einfach.</p>
+          <a class="btn btn--light" href="buchung.html">Individuellen Termin anfragen <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Max <span>Resch</span><small>Musik · Rhythmus · Bewegung</small></a>
+          <p style="margin-top:1rem; max-width:26rem;">Workshops, Kurse und Seminare rund um Musik, Rhythmik und Bewegung — mit Herz, Groove und langjähriger Erfahrung. In Wien &amp; auf Anfrage österreichweit.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="angebote.html">Angebote</a></li>
+            <li><a href="veranstaltungen.html">Veranstaltungen</a></li>
+            <li><a href="buchung.html">Buchung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:kontakt@maxresch.at">kontakt@maxresch.at</a></li>
+            <li><a href="https://www.facebook.com/MaxReschMusik/" target="_blank" rel="noopener">Facebook: MaxReschMusik</a></li>
+            <li><a href="https://www.farbenschein.at" target="_blank" rel="noopener">Musikschule Farbenschein</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-note">
+        <span>© 2026 Max Resch, Wien</span>
+        <span><a href="impressum.html">Impressum &amp; Datenschutz</a> · <a href="impressum.html#bildnachweis">Bildnachweise</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buchung — Workshops, Kurse &amp; Unterricht | Max Resch, Wien</title>
+  <meta name="description" content="Workshops, Kurse und Gitarrenunterricht bei Max Resch buchen — direkt online oder ganz unkompliziert per Anfrage-Formular." />
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="index.html">Max <span>Resch</span><small>Musik · Rhythmus · Bewegung</small></a>
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="ueber-mich.html">Über mich</a></li>
+          <li><a href="angebote.html">Angebote</a></li>
+          <li><a href="veranstaltungen.html">Veranstaltungen</a></li>
+          <li><a href="buchung.html" class="active">Buchung</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--primary nav-cta" href="buchung.html">Jetzt buchen</a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Start</a> / Buchung</p>
+        <span class="eyebrow">Buchung</span>
+        <h1>In drei Schritten zu deinem Termin</h1>
+        <p class="lead">Buche direkt online — oder stelle eine unverbindliche Anfrage, wenn du dich nicht festlegen oder nichts anmelden möchtest. Beides ist gleich willkommen.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="steps">
+          <div class="step reveal">
+            <h3>Angebot wählen</h3>
+            <p>TaKeTiNa-Workshop, Rhythmik-Kurs, Gitarrenunterricht oder Seminar — stöbere in den <a href="angebote.html">Angeboten</a> oder <a href="veranstaltungen.html">Terminen</a>.</p>
+          </div>
+          <div class="step reveal reveal-d1">
+            <h3>Buchen oder anfragen</h3>
+            <p>Entweder direkt unten im Online-Kalender buchen — oder das Anfrage-Formular nutzen. Ganz ohne Registrierung.</p>
+          </div>
+          <div class="step reveal reveal-d2">
+            <h3>Bestätigung erhalten</h3>
+            <p>Du bekommst eine persönliche Bestätigung mit allen Details — und dann: einfach kommen und Musik erleben!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Online-Buchung (Cal.com) ===== -->
+    <section class="section section--warm" id="online-buchen">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Option 1</span>
+          <h2>Direkt online buchen</h2>
+          <p class="lead">Freien Termin auswählen, Daten eintragen, fertig — du brauchst dafür kein Konto.</p>
+        </div>
+
+        <!-- Platzhalter, solange noch kein Cal.com-Account eingetragen ist -->
+        <div class="notice-panel reveal" id="cal-placeholder">
+          <span class="icon">📅</span>
+          <h3>Online-Buchung wird gerade eingerichtet</h3>
+          <p>Hier erscheint in Kürze der Buchungskalender mit allen freien Terminen. Bis dahin nutze bitte das <a href="#anfrage">Anfrage-Formular</a> unten — deine Anfrage wird genauso schnell beantwortet!</p>
+          <!-- HINWEIS FÜR DEN BETREIBER (im Browser unsichtbar):
+               1. Gratis-Account auf https://cal.com anlegen (z.B. Benutzername "max-resch")
+               2. Event-Typ anlegen, z.B. "workshop"
+               3. Unten im <script>-Block CAL_LINK = "max-resch/workshop" eintragen
+               → Der Buchungskalender erscheint dann automatisch an dieser Stelle. -->
+        </div>
+        <div id="cal-embed" style="display:none; min-height:620px; background:var(--white); border-radius:var(--radius-m); box-shadow:var(--shadow-soft); overflow:hidden;"></div>
+      </div>
+    </section>
+
+    <!-- ===== Anfrage-Formular ===== -->
+    <section class="section" id="anfrage">
+      <div class="container split" style="align-items:start;">
+        <div class="reveal">
+          <span class="eyebrow">Option 2</span>
+          <h2>Lieber persönlich anfragen?</h2>
+          <p class="lead">Kein Problem — füll einfach das Formular aus. Keine Registrierung, kein Konto, keine Verpflichtung: Du bekommst so schnell wie möglich eine persönliche Antwort.</p>
+          <ul class="check-list">
+            <li>Unverbindlich &amp; kostenlos</li>
+            <li>Antwort in der Regel innerhalb von 1–2 Werktagen</li>
+            <li>Auch für Gutscheine, Gruppen &amp; individuelle Termine</li>
+          </ul>
+          <div class="quote-inline">
+            <blockquote>Musik schafft Ordnung im Chaos.</blockquote>
+            <cite>Yehudi Menuhin (zugeschrieben)</cite>
+          </div>
+        </div>
+        <div class="form-card reveal reveal-d1">
+          <form id="booking-form">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="bf-name">Name *</label>
+                <input type="text" id="bf-name" name="name" required autocomplete="name" placeholder="Dein Name" />
+              </div>
+              <div class="form-field">
+                <label for="bf-email">E-Mail *</label>
+                <input type="email" id="bf-email" name="email" required autocomplete="email" placeholder="du@beispiel.at" />
+              </div>
+              <div class="form-field">
+                <label for="bf-angebot">Angebot *</label>
+                <select id="bf-angebot" name="angebot" required>
+                  <option value="">Bitte wählen …</option>
+                  <option>TaKeTiNa-Workshop</option>
+                  <option>Rhythmik / Bodypercussion</option>
+                  <option>Gitarrenunterricht</option>
+                  <option>Seminar / Teamevent</option>
+                  <option>Sonstiges / Beratung</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="bf-termin">Wunschtermin</label>
+                <input type="text" id="bf-termin" name="termin" placeholder="z.B. 8. August oder „flexibel“" />
+              </div>
+              <div class="form-field form-field--full">
+                <label for="bf-nachricht">Deine Nachricht</label>
+                <textarea id="bf-nachricht" name="nachricht" placeholder="Erzähl kurz, worum es geht — Vorerfahrung, Gruppengröße, Fragen …"></textarea>
+              </div>
+            </div>
+            <p class="form-hint" style="margin-top:0.9rem;">* Pflichtfelder. Deine Daten werden ausschließlich zur Beantwortung deiner Anfrage verwendet.</p>
+            <button type="submit" class="btn btn--primary" style="margin-top:1.2rem;">Anfrage senden <span class="arrow">→</span></button>
+            <div id="form-msg" class="form-msg" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band bg-gitarre-fenster">
+      <div class="container reveal">
+        <blockquote>Wo die Sprache aufhört, fängt die Musik an.</blockquote>
+        <cite>E. T. A. Hoffmann</cite>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Max <span>Resch</span><small>Musik · Rhythmus · Bewegung</small></a>
+          <p style="margin-top:1rem; max-width:26rem;">Workshops, Kurse und Seminare rund um Musik, Rhythmik und Bewegung — mit Herz, Groove und langjähriger Erfahrung. In Wien &amp; auf Anfrage österreichweit.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="angebote.html">Angebote</a></li>
+            <li><a href="veranstaltungen.html">Veranstaltungen</a></li>
+            <li><a href="buchung.html">Buchung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:kontakt@maxresch.at">kontakt@maxresch.at</a></li>
+            <li><a href="https://www.facebook.com/MaxReschMusik/" target="_blank" rel="noopener">Facebook: MaxReschMusik</a></li>
+            <li><a href="https://www.farbenschein.at" target="_blank" rel="noopener">Musikschule Farbenschein</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-note">
+        <span>© 2026 Max Resch, Wien</span>
+        <span><a href="impressum.html">Impressum &amp; Datenschutz</a> · <a href="impressum.html#bildnachweis">Bildnachweise</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/events.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* === Cal.com aktivieren ===
+       Sobald der Cal.com-Account existiert, hier den Link eintragen,
+       z.B.: const CAL_LINK = "max-resch/workshop";  */
+    const CAL_LINK = "";
+    if (CAL_LINK) mountCalEmbed(CAL_LINK);
+  </script>
+</body>
+</html>
