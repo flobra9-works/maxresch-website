@@ -58,7 +58,7 @@ const EVENTS = [
     time: "19:00",
     title: "Konzertabend: Saiten & Trommeln",
     place: "Kultursaal Penzing, 1140 Wien",
-    desc: "Max Resch & Gäste live — ein Abend zwischen Gitarre, Percussion und gemeinsamen Rhythmen zum Mitmachen.",
+    desc: "Maximilian Resch & Gäste live — ein Abend zwischen Gitarre, Percussion und gemeinsamen Rhythmen zum Mitmachen.",
     badge: ""
   }
 ];

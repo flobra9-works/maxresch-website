@@ -370,27 +370,17 @@ p + p { margin-top: 1em; }
   100% { border-radius: 58% 42% 45% 55% / 50% 48% 52% 50%; }
 }
 
-/* Schwebende Noten-Deko */
-.float-note {
-  position: absolute;
-  font-family: var(--font-serif);
-  color: var(--ochre);
-  opacity: 0.5;
-  user-select: none;
-  pointer-events: none;
-  animation: float-y 7s ease-in-out infinite;
-}
-@keyframes float-y {
-  0%, 100% { transform: translateY(0) rotate(-6deg); }
-  50% { transform: translateY(-18px) rotate(6deg); }
-}
-
 /* ---------- Cards ---------- */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
   gap: clamp(1.2rem, 2.6vw, 2rem);
 }
+/* Angebots-Raster: bewusst dreispaltig, damit die sechs Angebote
+   als 3 × 2 aufgehen (auto-fit würde 4 + 2 ergeben). */
+.card-grid--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 980px) { .card-grid--3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .card-grid--3 { grid-template-columns: 1fr; } }
 .card {
   background: var(--white);
   border-radius: var(--radius-m);
@@ -627,7 +617,6 @@ p + p { margin-top: 1em; }
 }
 .testimonial footer strong { display: block; font-size: 0.95rem; color: var(--ink); }
 .testimonial footer span { font-size: 0.82rem; color: var(--grey); }
-.stars { color: var(--ochre); letter-spacing: 2px; font-size: 0.9rem; }
 
 /* ---------- Veranstaltungen ---------- */
 .event-list {
@@ -995,8 +984,7 @@ html.js .reveal.visible {
   html { scroll-behavior: auto; }
   html.js .reveal { opacity: 1; transform: none; transition: none; }
   .blob-frame::before,
-  .blob-frame img,
-  .float-note { animation: none; }
+  .blob-frame img { animation: none; }
 }
 
 /* ---------- Seiten-Hero (Unterseiten) ---------- */

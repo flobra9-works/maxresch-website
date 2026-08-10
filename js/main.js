@@ -227,7 +227,7 @@ function initBookingForm() {
      Solange FORMSPREE_ENDPOINT leer ist, öffnet das Formular das
      E-Mail-Programm der Besucher:in (mailto-Fallback). */
   const FORMSPREE_ENDPOINT = "";
-  const CONTACT_EMAIL = "kontakt@maxresch.at"; // PLATZHALTER — echte Adresse eintragen!
+  const CONTACT_EMAIL = "info@maxresch.eu"; // ACHTUNG: Postfach muss eingerichtet sein!
 
   const msg = document.getElementById("form-msg");
 
@@ -265,10 +265,11 @@ function initBookingForm() {
   });
 }
 
-/* ---------- Cal.com-Einbindung ---------- */
-/* Sobald Max seinen Cal.com-Account hat: in buchung.html die Variable
-   CAL_LINK setzen (z.B. "max-resch/workshop"). Die Funktion unten bettet
-   den Buchungskalender dann automatisch ein. */
+/* ---------- Cal.com-Einbindung (derzeit NICHT aktiv) ---------- */
+/* Die Buchungsseite bietet auf Kundenwunsch nur das Anfrage-Formular an.
+   Diese Funktion bleibt vorbereitet, falls die Online-Buchung später doch
+   kommen soll: dazu in buchung.html einen Container <div id="cal-embed">
+   einfügen und mountCalEmbed("benutzer/event-typ") aufrufen. */
 function mountCalEmbed(calLink) {
   const target = document.getElementById("cal-embed");
   const placeholder = document.getElementById("cal-placeholder");
