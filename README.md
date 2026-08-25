@@ -17,8 +17,11 @@ Live: https://flobra9-works.github.io/maxresch-website/
 
 ## Inhalte pflegen
 
-- **Termine:** in `js/events.js` — einfaches Listenformat, oben in der Datei erklärt.
-  Kalender und Terminliste aktualisieren sich automatisch.
+- **Termine:** kommen live aus einem **Google Sheet** — `js/events.js` liest es bei jedem
+  Seitenaufruf per CSV-Export aus (Details und Spaltenformat stehen als Kommentar oben
+  in der Datei). Einfach eine Zeile in der Tabelle hinzufügen, ändern oder löschen —
+  kein Code, kein erneutes Hochladen nötig. Kalender und Terminliste aktualisieren sich
+  automatisch daraus.
 - **Texte:** direkt in den HTML-Dateien. Alle Stellen, die noch echte Daten brauchen,
   sind mit „PLATZHALTER“ kommentiert (Suche nach `PLATZHALTER`).
 - **Bilder:** liegen in `img/`. Beim Austausch einfach gleiche Dateinamen verwenden.
@@ -42,8 +45,14 @@ Live: https://flobra9-works.github.io/maxresch-website/
    der Abschnitt nicht leer wirkt. Max holt echte Rückmeldungen ein. Sobald die da
    sind: in `index.html` Texte, Namen und Avatar-Buchstaben austauschen und den
    Platzhalter-Satz im Lead-Text entfernen.
-6. **Termine** — `js/events.js` enthält weiterhin Beispieldaten. Solange der Hinweis
-   darauf in `veranstaltungen.html` steht, ist das transparent.
+6. **Termine-Sheet ist noch ein Beispiel** — das aktuell eingebundene Google Sheet
+   („Termine – Maximilian Resch (Beispiel)“) gehört Florian, nicht Max, und die
+   Termine sind erfunden (wenn auch realistisch). **Zu klären:** Soll Max eine eigene
+   Kopie in seinem Google-Konto anlegen (Datei → Kopie erstellen)? Dann tauschen wir
+   die Sheet-ID in `js/events.js` (Konstante `SHEET_ID`) gegen seine aus — eine
+   Zeile Code. Wichtig dabei: Die Freigabe muss „Jeder mit dem Link: Betrachter“
+   bleiben, sonst zeigt die Website keine Termine mehr an. Solange das Beispiel-Sheet
+   aktiv ist, bleibt der Hinweis „Beispiel-Platzhalter“ in `veranstaltungen.html` stehen.
 7. **TaKeTiNa-Logo** — Max schickt es; danach auf der Angebote-Seite beim
    TaKeTiNa-Abschnitt einbinden und auf taketina.com verlinken.
 8. **Eigene Fotos** — bisher nur Unsplash-Symbolbilder. Max hat bereits Bilder
@@ -53,8 +62,10 @@ Live: https://flobra9-works.github.io/maxresch-website/
 10. **Echte Online-Buchung** — Max fragte, wie das später aussieht, wenn Dinge direkt
     buchbar sind (Zahlung, Bestätigungsmail). Dafür ist ein eigenes Gespräch geplant;
     `mountCalEmbed()` in `js/main.js` ist als Startpunkt vorbereitet, aber nicht aktiv.
-11. **Einschulung** — Max möchte lernen, wie er künftig selbst Änderungen macht
-    (v.a. Termine in `js/events.js`).
+11. **Einschulung** — durch die Google-Sheet-Lösung (siehe Punkt 6) erledigt sich das
+    größtenteils von selbst: Max trägt Termine direkt in der Tabelle ein, ganz ohne
+    Code. Übrig bleibt höchstens eine kurze Erklärung, wie man in Google Sheets eine
+    Zeile hinzufügt/löscht — falls gewünscht.
 12. **Formular-Versand ohne E-Mail-Programm** (optional, empfohlen):
     Gratis-Account auf https://formspree.io, Endpoint-URL in `js/main.js` bei
     `FORMSPREE_ENDPOINT` eintragen. Ohne Formspree öffnet das Formular das
@@ -76,3 +87,7 @@ Live: https://flobra9-works.github.io/maxresch-website/
 - Durchgängige **Du-Ansprache** auf der ganzen Website.
 - `.floating-contact` (css/style.css) ist ein fix positionierter Kontakt-Button unten
   rechts, der beim Scrollen sichtbar bleibt — unabhängig vom Menüpunkt „Kontakt“.
+- Termine kommen live per CSV-Export aus einem Google Sheet (`js/events.js`,
+  Konstante `SHEET_ID`). Die Freigabe des Sheets muss auf „Jeder mit dem Link:
+  Betrachter“ stehen bleiben. Bei Netzwerkfehlern oder falscher Freigabe fällt die
+  Seite sauber auf die „keine Termine online“-Meldung zurück, statt zu brechen.
