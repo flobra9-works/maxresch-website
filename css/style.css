@@ -295,6 +295,18 @@ p + p { margin-top: 1em; }
   transition: transform var(--transition), opacity var(--transition);
 }
 
+/* ---------- Floating Kontakt-Button ---------- */
+.floating-contact {
+  position: fixed;
+  right: clamp(1.1rem, 3vw, 1.8rem);
+  bottom: clamp(1.1rem, 3vw, 1.8rem);
+  z-index: 55;
+  box-shadow: var(--shadow-lift);
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-contact { transition: none; }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
