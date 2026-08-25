@@ -23,7 +23,7 @@ Live: https://flobra9-works.github.io/maxresch-website/
   sind mit „PLATZHALTER“ kommentiert (Suche nach `PLATZHALTER`).
 - **Bilder:** liegen in `img/`. Beim Austausch einfach gleiche Dateinamen verwenden.
 
-## Offene Punkte (Stand: 2. Feedback-Runde, 25.08.2026)
+## Offene Punkte (Stand: 25.08.2026)
 
 1. **E-Mail-Postfach `info@maxresch.eu` einrichten** — die Adresse steht überall auf der
    Seite (Footer, Impressum, `js/main.js` → `CONTACT_EMAIL`). Ohne Postfach laufen
@@ -37,10 +37,11 @@ Live: https://flobra9-works.github.io/maxresch-website/
    § 5 ECG verlangt „Angaben, die eine rasche elektronische Kontaktaufnahme
    ermöglichen, einschließlich E-Mail-Adresse“ — eine E-Mail-Adresse genügt.
    Eine Telefonnummer ist freiwillig; wenn gewünscht, in `impressum.html` ergänzen.
-5. **Echte Stimmen** — die Testimonial-Sektion auf der Startseite ist derzeit
-   **auskommentiert**, weil die Zitate erfunden waren. Max holt echte Rückmeldungen
-   ein. Zum Reaktivieren: in `index.html` den Kommentar um die Sektion „Stimmen“
-   entfernen und Texte/Namen austauschen.
+5. **Echte Stimmen** — die Testimonial-Sektion auf der Startseite zeigt aktuell wieder
+   drei **erfundene** Beispiel-Zitate (mit Hinweis „Platzhalter“ im Lead-Text), damit
+   der Abschnitt nicht leer wirkt. Max holt echte Rückmeldungen ein. Sobald die da
+   sind: in `index.html` Texte, Namen und Avatar-Buchstaben austauschen und den
+   Platzhalter-Satz im Lead-Text entfernen.
 6. **Termine** — `js/events.js` enthält weiterhin Beispieldaten. Solange der Hinweis
    darauf in `veranstaltungen.html` steht, ist das transparent.
 7. **TaKeTiNa-Logo** — Max schickt es; danach auf der Angebote-Seite beim
@@ -73,3 +74,5 @@ Live: https://flobra9-works.github.io/maxresch-website/
 - Die Seite `buchung.html` heißt in Navigation und Button **„Kontakt“**; der Dateiname
   bleibt `buchung.html`, damit bestehende Links weiter funktionieren.
 - Durchgängige **Du-Ansprache** auf der ganzen Website.
+- `.floating-contact` (css/style.css) ist ein fix positionierter Kontakt-Button unten
+  rechts, der beim Scrollen sichtbar bleibt — unabhängig vom Menüpunkt „Kontakt“.
