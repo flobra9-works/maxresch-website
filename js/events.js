@@ -25,7 +25,7 @@ const EVENTS = [
     date: "2026-08-21",
     time: "18:30–21:00",
     title: "Rhythmik-Abend: Puls & Körper",
-    place: "Musikschule Farbenschein, 1140 Wien",
+    place: "Musikraum Penzing, 1140 Wien",
     desc: "Offener Abend für Erwachsene — Bewegung, Bodypercussion und Groove in entspannter Atmosphäre.",
     badge: ""
   },
@@ -49,7 +49,7 @@ const EVENTS = [
     date: "2026-10-10",
     time: "10:00–17:00",
     title: "Wochenend-Seminar: Rhythmus & Bewegung im Unterricht",
-    place: "Musikschule Farbenschein, 1140 Wien",
+    place: "Musikraum Penzing, 1140 Wien",
     desc: "Fortbildung für Pädagog:innen: rhythmisch-musikalische Übungen für Gruppen, sofort einsetzbar.",
     badge: "Fortbildung"
   },
