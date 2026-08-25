@@ -6,9 +6,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initReveal();
-  initEventList();
-  initCalendar();
   initBookingForm();
+
+  const list = document.getElementById("event-list");
+  const calRoot = document.getElementById("calendar");
+  if (list || calRoot) {
+    if (list) list.innerHTML = '<p class="lead">Termine werden geladen …</p>';
+    loadEvents().then((events) => {
+      initEventList(events);
+      initCalendar(events);
+    });
+  }
 });
 
 /* ---------- Mobile Navigation ---------- */
@@ -68,19 +76,15 @@ function parseISO(iso) {
   return new Date(y, m - 1, d);
 }
 
-function getEvents() {
-  return typeof EVENTS !== "undefined" ? EVENTS : [];
-}
-
 /* ---------- Veranstaltungsliste (kommende Termine) ---------- */
-function initEventList() {
+function initEventList(events) {
   const list = document.getElementById("event-list");
   if (!list) return;
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const upcoming = getEvents()
+  const upcoming = events
     .filter((ev) => parseISO(ev.date) >= today)
     .sort((a, b) => a.date.localeCompare(b.date));
 
@@ -117,11 +121,10 @@ function initEventList() {
 }
 
 /* ---------- Kalender ---------- */
-function initCalendar() {
+function initCalendar(events) {
   const calRoot = document.getElementById("calendar");
   if (!calRoot) return;
 
-  const events = getEvents();
   const eventsByDate = {};
   events.forEach((ev) => {
     (eventsByDate[ev.date] = eventsByDate[ev.date] || []).push(ev);
