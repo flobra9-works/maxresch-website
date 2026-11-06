@@ -992,7 +992,8 @@ p + p { margin-top: 1em; }
 .site-footer {
   background: #1c0f08;
   color: #cbb9ab;
-  padding: clamp(3rem, 7vw, 4.5rem) 0 1.6rem;
+  /* unten Luft, damit der schwebende Kontakt-Button keine Links verdeckt */
+  padding: clamp(3rem, 7vw, 4.5rem) 0 5.5rem;
   font-size: 0.95rem;
 }
 .footer-grid {

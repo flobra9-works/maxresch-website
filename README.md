@@ -89,7 +89,9 @@ Live: **https://maxresch.eu** (Hosting: GitHub Pages, Repo `flobra9-works/maxres
    Musik“** (Unsplash), bis Max passende Aufnahmen hat (Gitarre, Konzert). „Über mich“
    zeigt das Workshop-Foto. Übrige Unterseiten nutzen Stockfotos in Zitatbändern.
    Da nur neun Fotos vorliegen, wiederholen sich Motive; mehr Abwechslung
-   (Workshop-Szenen, Konzert) wäre hilfreich.
+   (Workshop-Szenen, Konzert) wäre hilfreich. Die Fotografin Anna Kriete ist im
+   Bildnachweis im Impressum genannt. Noch zu klären: Einverständnis der erkennbaren
+   Personen auf dem Workshop-Foto (`max-berimbau-workshop.jpg`).
    **Offen:** (a) Fotograf:in für den Bildnachweis im Impressum (Kommentar in
    `impressum.html`), (b) Einverständnis der erkennbaren Teilnehmer:innen auf
    `max-berimbau-workshop.jpg`, (c) TaKeTiNa-Logo steht weiter aus.
