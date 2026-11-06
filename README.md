@@ -2,7 +2,23 @@
 
 Statische Website (HTML/CSS/JavaScript, kein Framework, kein Build-Schritt).
 Zum Ansehen genügt ein Doppelklick auf `index.html` — oder ein beliebiger Webspace/Gratis-Hoster.
-Live: https://flobra9-works.github.io/maxresch-website/
+Live: **https://maxresch.eu** (Hosting: GitHub Pages, Repo `flobra9-works/maxresch-website`)
+
+## Domain & Hosting (seit 06.11.2026)
+
+- **Hauptdomain `maxresch.eu`** (Strato) zeigt per DNS auf GitHub Pages. Die Datei `CNAME`
+  im Repo und die Custom-Domain-Einstellung bei GitHub müssen dazu passen.
+- **Strato-DNS** (Domainverwaltung → DNS): `A` = `185.199.108.153`, `AAAA` =
+  `2606:50c0:8000::153`, CNAME `www` = `flobra9-works.github.io`. **MX, SPF und DMARC
+  gehören zur Mail und dürfen nicht verändert werden.**
+- **`maxresch.net` und `maxresch.org`** leiten bei Strato per 301 auf `https://maxresch.eu`
+  weiter (GitHub Pages liefert nur eine Domain aus).
+- **Alter Stand zum Zurückdrehen:** `A` = `81.169.145.152`, `AAAA` =
+  `2a01:238:20a:202:1152::`, `www` = CNAME auf `maxresch.eu`. Das alte WordPress im
+  Strato-Paket („WordPress Hosting Starter“) ist unverändert vorhanden, aber nicht mehr
+  über die Domain erreichbar. Das Paket nicht kündigen, ohne vorher zu prüfen, ob die
+  Mailboxen daran hängen.
+- Deployment: `git push` auf `main` genügt, nach 1–2 Minuten ist es live.
 
 ## Seiten
 
@@ -26,11 +42,20 @@ Live: https://flobra9-works.github.io/maxresch-website/
   sind mit „PLATZHALTER“ kommentiert (Suche nach `PLATZHALTER`).
 - **Bilder:** liegen in `img/`. Beim Austausch einfach gleiche Dateinamen verwenden.
 
-## Offene Punkte (Stand: 25.08.2026)
+## Offene Punkte (Stand: 06.11.2026)
 
-1. **E-Mail-Postfach `info@maxresch.eu` einrichten** — die Adresse steht überall auf der
-   Seite (Footer, Impressum, `js/main.js` → `CONTACT_EMAIL`). Ohne Postfach laufen
-   Anfragen ins Leere. Weiterhin offen.
+0. **Nach der Domain-Umstellung noch zu prüfen:** (a) `https://www.maxresch.eu` hatte kurz
+   nach der Umstellung noch einen Zertifikatsfehler, weil GitHub das Zertifikat erst um
+   `www` erweitern muss; erneut testen und ggf. die Custom Domain bei GitHub einmal
+   entfernen und neu setzen. (b) `https://maxresch.net` und `.org` haben keine
+   HTTPS-Verbindung (Strato-Weiterleitung ohne Zertifikat); Weiterleitungsziel dort auf
+   `https://maxresch.eu` setzen und prüfen, ob unter Sicherheit → SSL-Zertifikate eines
+   aktivierbar ist. (c) Testmail an `info@maxresch.eu` und Kontaktformular ausprobieren.
+1. **E-Mail-Postfach `info@maxresch.eu`** — die Adresse steht überall auf der Seite
+   (Footer, Impressum, `js/main.js` → `CONTACT_EMAIL`). Der MX-Eintrag zeigt auf Strato,
+   ob das Postfach existiert, ist per Testmail zu bestätigen. Außerdem steht bei Strato
+   die SPF-Regel auf „Keine STRATO SPF-Regel“, was die Zustellung eigener Mails
+   verschlechtern kann; mit Max klären.
 2. **Instagram-Link** — im Footer aller Seiten steht ein Platzhalter
    (`https://www.instagram.com/`). Echten Profil-Link eintragen. Weiterhin offen.
 3. **UID-Nummer prüfen** — im Fragebogen stand „AUT77398914“. Österreichische UIDs
@@ -40,23 +65,31 @@ Live: https://flobra9-works.github.io/maxresch-website/
    § 5 ECG verlangt „Angaben, die eine rasche elektronische Kontaktaufnahme
    ermöglichen, einschließlich E-Mail-Adresse“ — eine E-Mail-Adresse genügt.
    Eine Telefonnummer ist freiwillig; wenn gewünscht, in `impressum.html` ergänzen.
-5. **Echte Stimmen** — die Testimonial-Sektion auf der Startseite zeigt aktuell wieder
-   drei **erfundene** Beispiel-Zitate (mit Hinweis „Platzhalter“ im Lead-Text), damit
-   der Abschnitt nicht leer wirkt. Max holt echte Rückmeldungen ein. Sobald die da
-   sind: in `index.html` Texte, Namen und Avatar-Buchstaben austauschen und den
+5. **Echte Stimmen** — die Testimonial-Sektion auf der Startseite zeigt drei
+   **erfundene** Beispiel-Zitate (mit Hinweis „Platzhalter“ im Lead-Text). Auf Wunsch
+   bleiben sie vorerst öffentlich stehen. Max holt echte Rückmeldungen ein. Sobald die
+   da sind: in `index.html` Texte, Namen und Avatar-Buchstaben austauschen und den
    Platzhalter-Satz im Lead-Text entfernen.
-6. **Termine-Sheet ist noch ein Beispiel** — das aktuell eingebundene Google Sheet
-   („Termine – Maximilian Resch (Beispiel)“) gehört Florian, nicht Max, und die
-   Termine sind erfunden (wenn auch realistisch). **Zu klären:** Soll Max eine eigene
-   Kopie in seinem Google-Konto anlegen (Datei → Kopie erstellen)? Dann tauschen wir
-   die Sheet-ID in `js/events.js` (Konstante `SHEET_ID`) gegen seine aus — eine
+6. **Termine-Sheet gehört Florian** — das eingebundene Google Sheet („Termine –
+   Maximilian Resch“) enthält die echten TaKeTiNa-Sessions (04.10., 24.10., 08.11.2026,
+   AMAR DAS Yogastudio), gehört aber Florian, nicht Max. **Zu klären:** Soll Max eine
+   eigene Kopie in seinem Google-Konto anlegen (Datei → Kopie erstellen)? Dann tauschen
+   wir die Sheet-ID in `js/events.js` (Konstante `SHEET_ID`) gegen seine aus — eine
    Zeile Code. Wichtig dabei: Die Freigabe muss „Jeder mit dem Link: Betrachter“
-   bleiben, sonst zeigt die Website keine Termine mehr an. Solange das Beispiel-Sheet
-   aktiv ist, bleibt der Hinweis „Beispiel-Platzhalter“ in `veranstaltungen.html` stehen.
+   bleiben, sonst zeigt die Website keine Termine mehr an. Vergangene Termine blendet
+   die Terminliste automatisch aus, im Kalender bleiben sie markiert.
 7. **TaKeTiNa-Logo** — Max schickt es; danach auf der Angebote-Seite beim
    TaKeTiNa-Abschnitt einbinden und auf taketina.com verlinken.
-8. **Eigene Fotos** — bisher nur Unsplash-Symbolbilder. Max hat bereits Bilder
-   fürs TaKeTiNa, der Rest folgt.
+8. **Eigene Fotos** — neun echte Fotos von Max liegen in `img/` (Metadaten entfernt,
+   max. 1800 px). Eingebaut sind: Hero (`max-portrait-trommel.jpg`), „Warum Musik &
+   Bewegung?“ (`caxixi-gruppe.jpg`), Karte Rhythmik (`max-berimbau-workshop.jpg`),
+   „Über mich“ (`max-berimbau-zeigt.jpg`), Zitatband (`haende-trommel.jpg`) und
+   Angebote → Rhythmik (`max-trommel-konzentration.jpg`). Noch ungenutzt:
+   `max-berimbau-ernst.jpg`, `max-berimbau-lachen.jpg`, `berimbau-haende.jpg`. Der Rest
+   sind weiter Unsplash-Bilder (u. a. Gitarre, Schlagzeug, Tänzerin, Publikum).
+   **Offen:** (a) Fotograf:in für den Bildnachweis im Impressum (Kommentar in
+   `impressum.html`), (b) Einverständnis der erkennbaren Teilnehmer:innen auf
+   `max-berimbau-workshop.jpg`, (c) TaKeTiNa-Logo steht weiter aus.
 9. **Preise** — noch offen, ob feste Preisliste oder Flyer bei den Terminen.
    Fix ist bisher nur „Schnupperstunde zum halben Preis“ beim Gitarrenunterricht.
 10. **Echte Online-Buchung** — Max fragte, wie das später aussieht, wenn Dinge direkt

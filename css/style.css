@@ -984,6 +984,7 @@ p + p { margin-top: 1em; }
 .bg-buehne { --img-bg: url("../img/buehne-saenger.jpg"); }
 .bg-hero-gitarre { --img-bg: url("../img/hero-gitarre.jpg"); }
 .bg-taenzerin { --img-bg: url("../img/taenzerin-bewegung.jpg"); }
+.bg-haende { --img-bg: url("../img/haende-trommel.jpg"); }
 
 /* ---------- Footer ---------- */
 .site-footer {
