@@ -104,10 +104,14 @@ Live: **https://maxresch.eu** (Hosting: GitHub Pages, Repo `flobra9-works/maxres
     größtenteils von selbst: Max trägt Termine direkt in der Tabelle ein, ganz ohne
     Code. Übrig bleibt höchstens eine kurze Erklärung, wie man in Google Sheets eine
     Zeile hinzufügt/löscht — falls gewünscht.
-12. **Formular-Versand ohne E-Mail-Programm** (optional, empfohlen):
-    Gratis-Account auf https://formspree.io, Endpoint-URL in `js/main.js` bei
-    `FORMSPREE_ENDPOINT` eintragen. Ohne Formspree öffnet das Formular das
-    E-Mail-Programm der Besucher:in (funktioniert auch).
+12. **Formular-Direktversand (Web3Forms) ist eingebaut** — `WEB3FORMS_KEY` in
+    `js/main.js` ist gesetzt, das Formular verschickt direkt statt das
+    E-Mail-Programm zu öffnen. Die Empfänger-Adresse hängt am Key (bei
+    https://web3forms.com festgelegt); ein anderer Empfänger braucht einen neuen
+    Key. Die Datenschutzerklärung im Impressum nennt den Dienst. **Noch zu
+    klären:** ob für Web3Forms eine Auftragsverarbeitungs-Vereinbarung nötig ist,
+    und per Testanfrage bestätigen, dass die Mails ankommen (auch im Spam-Ordner
+    schauen). Formspree ginge alternativ über `FORMSPREE_ENDPOINT`.
 
 ## Technik-Notizen
 

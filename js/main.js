@@ -224,36 +224,69 @@ function initBookingForm() {
   const form = document.getElementById("booking-form");
   if (!form) return;
 
-  /* OPTION FORMSPREE (empfohlen, sobald Account vorhanden):
-     1. Gratis-Account auf formspree.io anlegen, Formular erstellen
-     2. Die Endpoint-URL unten eintragen, z.B. "https://formspree.io/f/abcdwxyz"
-     Solange FORMSPREE_ENDPOINT leer ist, öffnet das Formular das
-     E-Mail-Programm der Besucher:in (mailto-Fallback). */
+  /* DIREKTVERSAND (statt E-Mail-Programm der Besucher:innen)
+     Variante A: Web3Forms (kostenlos, ohne Konto)
+       1. Auf https://web3forms.com die Empfänger-Adresse eintragen
+       2. Der "Access Key" kommt per Mail an diese Adresse
+       3. Key unten bei WEB3FORMS_KEY eintragen
+       Der Key ist öffentlich vorgesehen (steht im Seitencode), er kann nur Mails
+       an die dort hinterlegte Adresse auslösen.
+     Variante B: Formspree — Endpoint-URL bei FORMSPREE_ENDPOINT eintragen.
+     Solange beides leer ist, öffnet das Formular das E-Mail-Programm der
+     Besucher:in (mailto-Fallback). */
+  const WEB3FORMS_KEY = "1a418c34-9b3b-4e3f-af76-90e4300a95f1";
   const FORMSPREE_ENDPOINT = "";
-  const CONTACT_EMAIL = "info@maxresch.eu"; // ACHTUNG: Postfach muss eingerichtet sein!
+  const CONTACT_EMAIL = "info@maxresch.eu"; // Anzeige in Fehlermeldung und mailto-Fallback
 
   const msg = document.getElementById("form-msg");
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  async function sendDirect(url, payload) {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const json = await res.json().catch(() => ({}));
+    // Web3Forms meldet Erfolg als {success:true}, Formspree über den HTTP-Status
+    if (!res.ok || json.success === false) throw new Error(json.message || "send failed");
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     msg.className = "form-msg";
 
     const data = Object.fromEntries(new FormData(form).entries());
+    const direct = WEB3FORMS_KEY || FORMSPREE_ENDPOINT;
 
-    if (FORMSPREE_ENDPOINT) {
+    if (direct) {
+      // Honeypot: Bots füllen das versteckte Feld aus, Menschen nicht
+      if (data.botcheck) return;
+      delete data.botcheck;
+
+      const original = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Wird gesendet …";
       try {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(data)
-        });
-        if (!res.ok) throw new Error("send failed");
+        if (WEB3FORMS_KEY) {
+          await sendDirect("https://api.web3forms.com/submit", {
+            access_key: WEB3FORMS_KEY,
+            subject: `Anfrage über maxresch.eu: ${data.angebot || "Allgemein"}`,
+            from_name: "Kontaktformular maxresch.eu",
+            ...data
+          });
+        } else {
+          await sendDirect(FORMSPREE_ENDPOINT, data);
+        }
         msg.textContent = "Danke für deine Anfrage! Du bekommst so bald wie möglich eine Antwort.";
         msg.classList.add("ok");
         form.reset();
       } catch (err) {
         msg.textContent = "Ups — das hat leider nicht geklappt. Bitte versuche es später erneut oder schreib direkt an " + CONTACT_EMAIL;
         msg.classList.add("err");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = original;
       }
     } else {
       // mailto-Fallback: öffnet das E-Mail-Programm mit vorausgefüllter Nachricht

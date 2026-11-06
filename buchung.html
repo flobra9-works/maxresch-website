@@ -75,6 +75,8 @@
                 <textarea id="bf-nachricht" name="nachricht" placeholder="Erzähl kurz, worum es geht — Vorerfahrung, Gruppengröße, Fragen …"></textarea>
               </div>
             </div>
+            <!-- Spamschutz: für Menschen unsichtbar, Bots füllen es aus -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px;" />
             <p class="form-hint" style="margin-top:0.9rem;">* Pflichtfelder. Deine Daten werden ausschließlich zur Beantwortung deiner Anfrage verwendet.</p>
             <button type="submit" class="btn btn--primary" style="margin-top:1.2rem;">Anfrage senden <span class="arrow">→</span></button>
             <div id="form-msg" class="form-msg" role="status"></div>
