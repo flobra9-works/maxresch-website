@@ -90,7 +90,7 @@ function initEventList(events) {
 
   if (!upcoming.length) {
     list.innerHTML =
-      '<p class="lead">Derzeit sind keine Termine online — neue Workshops werden laufend angekündigt. Schau bald wieder vorbei oder stelle eine <a href="buchung.html">Anfrage</a>!</p>';
+      '<p class="lead">Derzeit sind keine Termine online — neue Workshops werden laufend angekündigt. Schau bald wieder vorbei oder stelle eine <a href="kontakt.html">Anfrage</a>!</p>';
     return;
   }
 
@@ -111,7 +111,7 @@ function initEventList(events) {
           <p>${ev.time} Uhr · ${ev.place}</p>
           ${ev.desc ? `<p>${ev.desc}</p>` : ""}
         </div>
-        <a class="btn btn--ghost" href="buchung.html">Platz sichern</a>
+        <a class="btn btn--ghost" href="kontakt.html">Platz sichern</a>
       </article>`;
     })
     .join("");
@@ -201,7 +201,7 @@ function initCalendar(events) {
         <h4>${ev.title}</h4>
         <p>${formatDateDE(iso)} · ${ev.time} Uhr · ${ev.place}</p>
         ${ev.desc ? `<p>${ev.desc}</p>` : ""}
-        <a class="btn btn--primary" href="buchung.html">Jetzt buchen <span class="arrow">→</span></a>`
+        <a class="btn btn--primary" href="kontakt.html">Jetzt buchen <span class="arrow">→</span></a>`
       )
       .join("<hr style='margin:1rem 0;border:none;border-top:1px dashed #ccc'>");
     detail.classList.add("show");
@@ -304,7 +304,7 @@ function initBookingForm() {
 /* ---------- Cal.com-Einbindung (derzeit NICHT aktiv) ---------- */
 /* Die Buchungsseite bietet auf Kundenwunsch nur das Anfrage-Formular an.
    Diese Funktion bleibt vorbereitet, falls die Online-Buchung später doch
-   kommen soll: dazu in buchung.html einen Container <div id="cal-embed">
+   kommen soll: dazu in kontakt.html einen Container <div id="cal-embed">
    einfügen und mountCalEmbed("benutzer/event-typ") aufrufen. */
 function mountCalEmbed(calLink) {
   const target = document.getElementById("cal-embed");

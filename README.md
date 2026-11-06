@@ -28,7 +28,7 @@ Live: **https://maxresch.eu** (Hosting: GitHub Pages, Repo `flobra9-works/maxres
 | `ueber-mich.html` | Biografie, „Mein Ansatz“, Ausbildung & Wirken (Lebenslauf) |
 | `angebote.html` | TaKeTiNa, Bodypercussion, Rhythmik, Gitarrenunterricht, Seminare/Teamevents |
 | `veranstaltungen.html` | Interaktiver Kalender + Terminliste |
-| `buchung.html` | Anfrage-Formular (im Menü heißt die Seite „Kontakt“) |
+| `kontakt.html` | Kontakt: Anfrage-Formular (früher `buchung.html`, siehe Technik-Notizen) |
 | `impressum.html` | Impressum, Datenschutz, Bildnachweise |
 
 ## Inhalte pflegen
@@ -124,8 +124,9 @@ Live: **https://maxresch.eu** (Hosting: GitHub Pages, Repo `flobra9-works/maxres
 - Die Angebots-Cards nutzen `.card-grid--3` (3 × 2 statt 4 + 2) — siehe `css/style.css`.
 - Die Stationen auf „Über mich“ nutzen `.cv-groups` / `.cv-item` — Jahresspalte links,
   auf Mobil untereinander.
-- Die Seite `buchung.html` heißt in Navigation und Button **„Kontakt“**; der Dateiname
-  bleibt `buchung.html`, damit bestehende Links weiter funktionieren.
+- Die Kontaktseite hieß früher `buchung.html` und heißt jetzt `kontakt.html`. Die alte
+  Adresse `buchung.html` bleibt als kleine Weiterleitungsseite bestehen, damit
+  bestehende Links (z. B. in Mails oder auf Flyern) weiter funktionieren.
 - Durchgängige **Du-Ansprache** auf der ganzen Website.
 - `.floating-contact` (css/style.css) ist ein fix positionierter Kontakt-Button unten
   rechts, der beim Scrollen sichtbar bleibt — unabhängig vom Menüpunkt „Kontakt“.
