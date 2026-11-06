@@ -252,6 +252,15 @@ function initBookingForm() {
     if (!res.ok || json.success === false) throw new Error(json.message || "send failed");
   }
 
+  // E-Mail-Link mit vorausgefüllter Nachricht (Ausweg, falls der Direktversand scheitert)
+  function mailtoUrl(data) {
+    const subject = encodeURIComponent(`Anfrage über maxresch.eu: ${data.angebot || "Allgemein"}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nE-Mail: ${data.email}\nAngebot: ${data.angebot}\nWunschtermin: ${data.termin || "-"}\n\nNachricht:\n${data.nachricht || "-"}`
+    );
+    return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  }
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     msg.className = "form-msg";
@@ -282,7 +291,10 @@ function initBookingForm() {
         msg.classList.add("ok");
         form.reset();
       } catch (err) {
-        msg.textContent = "Ups — das hat leider nicht geklappt. Bitte versuche es später erneut oder schreib direkt an " + CONTACT_EMAIL;
+        console.warn("Formular-Versand fehlgeschlagen:", err);
+        msg.innerHTML =
+          'Ups — das hat leider nicht geklappt. Bitte versuche es später erneut oder ' +
+          `<a href="${mailtoUrl(data)}">schick uns die Nachricht direkt per E-Mail</a> (${CONTACT_EMAIL}).`;
         msg.classList.add("err");
       } finally {
         submitBtn.disabled = false;
@@ -290,11 +302,7 @@ function initBookingForm() {
       }
     } else {
       // mailto-Fallback: öffnet das E-Mail-Programm mit vorausgefüllter Nachricht
-      const subject = encodeURIComponent(`Buchungsanfrage: ${data.angebot || "Allgemein"}`);
-      const body = encodeURIComponent(
-        `Name: ${data.name}\nE-Mail: ${data.email}\nAngebot: ${data.angebot}\nWunschtermin: ${data.termin || "-"}\n\nNachricht:\n${data.nachricht || "-"}`
-      );
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoUrl(data);
       msg.textContent = "Dein E-Mail-Programm öffnet sich mit der vorbereiteten Anfrage — einfach absenden!";
       msg.classList.add("ok");
     }
