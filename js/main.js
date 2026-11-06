@@ -109,7 +109,7 @@ function initEventList(events) {
         <div class="event-info">
           <h3>${ev.title}${badge}</h3>
           <p>${ev.time} Uhr · ${ev.place}</p>
-          <p>${ev.desc}</p>
+          ${ev.desc ? `<p>${ev.desc}</p>` : ""}
         </div>
         <a class="btn btn--ghost" href="buchung.html">Platz sichern</a>
       </article>`;
@@ -200,7 +200,7 @@ function initCalendar(events) {
         (ev) => `
         <h4>${ev.title}</h4>
         <p>${formatDateDE(iso)} · ${ev.time} Uhr · ${ev.place}</p>
-        <p>${ev.desc}</p>
+        ${ev.desc ? `<p>${ev.desc}</p>` : ""}
         <a class="btn btn--primary" href="buchung.html">Jetzt buchen <span class="arrow">→</span></a>`
       )
       .join("<hr style='margin:1rem 0;border:none;border-top:1px dashed #ccc'>");
