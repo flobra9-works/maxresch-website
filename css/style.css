@@ -985,6 +985,8 @@ p + p { margin-top: 1em; }
 .bg-hero-gitarre { --img-bg: url("../img/hero-gitarre.jpg"); }
 .bg-taenzerin { --img-bg: url("../img/taenzerin-bewegung.jpg"); }
 .bg-haende { --img-bg: url("../img/haende-trommel.jpg"); }
+.bg-berimbau { --img-bg: url("../img/berimbau-haende.jpg"); }
+.bg-gruppe { --img-bg: url("../img/caxixi-gruppe.jpg"); }
 
 /* ---------- Footer ---------- */
 .site-footer {
