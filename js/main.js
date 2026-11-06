@@ -234,7 +234,7 @@ function initBookingForm() {
      Variante B: Formspree — Endpoint-URL bei FORMSPREE_ENDPOINT eintragen.
      Solange beides leer ist, öffnet das Formular das E-Mail-Programm der
      Besucher:in (mailto-Fallback). */
-  const WEB3FORMS_KEY = "1a418c34-9b3b-4e3f-af76-90e4300a95f1";
+  const WEB3FORMS_KEY = "75e738ad-dbf3-4a83-b514-59e99950fa93";
   const FORMSPREE_ENDPOINT = "";
   const CONTACT_EMAIL = "info@maxresch.eu"; // Anzeige in Fehlermeldung und mailto-Fallback
 
