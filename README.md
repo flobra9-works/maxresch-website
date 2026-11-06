@@ -81,14 +81,15 @@ Live: **https://maxresch.eu** (Hosting: GitHub Pages, Repo `flobra9-works/maxres
 7. **TaKeTiNa-Logo** — Max schickt es; danach auf der Angebote-Seite beim
    TaKeTiNa-Abschnitt einbinden und auf taketina.com verlinken.
 8. **Eigene Fotos** — neun echte Fotos von Max liegen in `img/` (Metadaten entfernt,
-   max. 1800 px). **Die Startseite nutzt ausschließlich diese Fotos** (Hero, „Warum
-   Musik & Bewegung?“, alle sechs Angebots-Karten, Zitatband, Abschluss-Banner). Auf
-   den Unterseiten sind noch Unsplash-Bilder (Angebote: Tänzerin, Schlagzeug, Gitarre,
-   Publikum; Über mich: Klaviertasten/Publikum als Hintergrund; Buchung/Veranstaltungen:
-   Zitatbänder), dazu „Über mich“ und Angebote → Rhythmik mit Max' Fotos. Die Karte
-   „Gitarrenunterricht“ zeigt Max mit Berimbau, nicht mit Gitarre; bei Gelegenheit ein
-   Gitarrenfoto nachliefern lassen. Da nur neun Fotos vorliegen, wiederholen sich
-   Motive; mehr Abwechslung (Workshop-Szenen, Konzert) wäre hilfreich.
+   max. 1800 px). Auf der **Startseite** (Hero, „Warum Musik & Bewegung?“, Karten
+   TaKeTiNa, Bodypercussion und Rhythmik, Zitatband, Abschluss-Banner) und auf der
+   Seite **Angebote** (TaKeTiNa, Bodypercussion, Rhythmik, Seminare) stehen Max' Fotos;
+   die Angebote-Seite verwendet dieselben Fotos wie die passenden Startseiten-Karten.
+   Auf Wunsch bleiben die **Stockfotos bei „Gitarrenunterricht“ und „Konzerte & Live-
+   Musik“** (Unsplash), bis Max passende Aufnahmen hat (Gitarre, Konzert). „Über mich“
+   zeigt das Workshop-Foto. Übrige Unterseiten nutzen Stockfotos in Zitatbändern.
+   Da nur neun Fotos vorliegen, wiederholen sich Motive; mehr Abwechslung
+   (Workshop-Szenen, Konzert) wäre hilfreich.
    **Offen:** (a) Fotograf:in für den Bildnachweis im Impressum (Kommentar in
    `impressum.html`), (b) Einverständnis der erkennbaren Teilnehmer:innen auf
    `max-berimbau-workshop.jpg`, (c) TaKeTiNa-Logo steht weiter aus.
