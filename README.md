@@ -42,15 +42,25 @@ Live: **https://maxresch.eu** (Hosting: GitHub Pages, Repo `flobra9-works/maxres
   sind mit „PLATZHALTER“ kommentiert (Suche nach `PLATZHALTER`).
 - **Bilder:** liegen in `img/`. Beim Austausch einfach gleiche Dateinamen verwenden.
 
-## Offene Punkte (Stand: 06.11.2026)
+## Bekannte Einschränkungen (bewusst so belassen, Stand 07.11.2026)
 
-0. **Nach der Domain-Umstellung noch zu prüfen:** (a) `https://www.maxresch.eu` hatte kurz
-   nach der Umstellung noch einen Zertifikatsfehler, weil GitHub das Zertifikat erst um
-   `www` erweitern muss; erneut testen und ggf. die Custom Domain bei GitHub einmal
-   entfernen und neu setzen. (b) `https://maxresch.net` und `.org` haben keine
-   HTTPS-Verbindung (Strato-Weiterleitung ohne Zertifikat); Weiterleitungsziel dort auf
-   `https://maxresch.eu` setzen und prüfen, ob unter Sicherheit → SSL-Zertifikate eines
-   aktivierbar ist. (c) Testmail an `info@maxresch.eu` und Kontaktformular ausprobieren.
+- **`https://www.maxresch.eu` zeigt eine Zertifikatswarnung.** GitHub nimmt `www` nicht ins
+  Zertifikat auf, obwohl der DNS-Eintrag stimmt; ein kurzer Reset der Custom Domain brachte
+  nichts, auch nach über 14 Stunden nicht. Die `http://`-Variante leitet sauber auf
+  `https://maxresch.eu` um. Möglicher Ausweg: Custom Domain bei GitHub entfernen, 10–15
+  Minuten warten, neu setzen (die Seite ist dabei kurz nicht erreichbar, Erfolg unsicher).
+- **`https://maxresch.net` und `.org` haben keine HTTPS-Verbindung.** Die Strato-
+  Weiterleitung hat dort kein Zertifikat, und weitere Zertifikate kosten extra. Mit
+  `http://` oder ohne Präfix klappt die 301-Weiterleitung auf `https://maxresch.eu`.
+  Kostenlose Alternative, falls gewünscht: je ein kleines GitHub-Pages-Repo mit
+  Weiterleitungsseite und DNS-Umstellung dieser Domains.
+- **Kontaktformular:** Der Dienst Web3Forms sperrt IP-Adressen kurzzeitig, wenn von
+  dort viele Anfragen in kurzer Zeit kommen (beim Testen vorgekommen). Nicht mehrfach
+  hintereinander testen. Bei Fehlern zeigt die Seite einen E-Mail-Link als Ausweg.
+  Am 07.11.2026 getestet, läuft.
+
+## Offene Punkte (Stand: 07.11.2026)
+
 1. **E-Mail-Postfach `info@maxresch.eu`** — die Adresse steht überall auf der Seite
    (Footer, Impressum, `js/main.js` → `CONTACT_EMAIL`). Der MX-Eintrag zeigt auf Strato,
    ob das Postfach existiert, ist per Testmail zu bestätigen. Außerdem steht bei Strato
